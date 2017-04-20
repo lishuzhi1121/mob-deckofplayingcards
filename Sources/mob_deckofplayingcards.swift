@@ -10,7 +10,7 @@ public struct Deck {
     
     public static func standard52Cards() -> Deck {
         let suits: [Suit] = [.spades, .hearts, .diamonds, .clubs]
-        let ranks: [Rank] = [.two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king]
+        let ranks: [Rank] = [.two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .jack, .queen, .king, .ace]
         
         var cards: [PlayingCard] = []
         
@@ -35,12 +35,15 @@ public struct Deck {
     }
 }
 
+// MARK: ExpressibleByArrayLiteral
 
 extension Deck: ExpressibleByArrayLiteral {
     public init(arrayLiteral elements: PlayingCard...) {
         self.init(elements)
     }
 }
+
+// MARK: - Equatable
 
 extension Deck: Equatable {
     static public func ==(lhs: Deck, rhs: Deck) -> Bool {
